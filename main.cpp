@@ -4,13 +4,13 @@
 #include "vector.h"
 #include "mySatur.h"
 
-int main(void) {
+int main() {
 
 
     vector x(3), y(3);
     x[0] = 9000.0; x[1] = 2.0;
     y[0] = 1002.0; y[1] = 9.0;
-    int j = 0;
+
     vector res = x + y; // сложение массивов
     res.print();
 

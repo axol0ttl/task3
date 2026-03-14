@@ -17,6 +17,5 @@ public:
     friend myFloat operator/(myFloat a, myFloat b);
     friend bool operator>(myFloat a, myFloat b);
     friend bool operator<(myFloat a, myFloat b);
-    // friend bool operator==(myFloat a, myFloat b);
-    // friend bool operator!=(myFloat a, myFloat b);
+
 };
