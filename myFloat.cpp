@@ -78,7 +78,7 @@ myFloat::myFloat(int a,int b){
 }
 
 void myFloat::print(){
-    printf("%d.%04d", c, abs(d));///??????? (переделать принт в майфлоат, а вывод суффикса оставить здесь отдельно)
+    printf("%d.%04d", c, abs(d));
     }
 
     
@@ -122,14 +122,6 @@ bool operator>(myFloat a, myFloat b){
 bool operator<(myFloat a, myFloat b){
     return !(a>b);
 }
-
-// bool operator==(myFloat a, myFloat b){
-//     return (a.c == b.c && a.d == b.d);
-// }
-//
-// bool operator!=(myFloat a, myFloat b) {
-//     return !(a==b);
-// }
 
 // Функция возвращает синус числа x в радианах (мой мозг + стаковерфлоу + чатгпт)
 myFloat myFloat::Sin(myFloat x) {
