@@ -17,10 +17,8 @@ vector::vector(int s) {
 }
 
 vector::vector() {
-    vector(99);
-    // sz = 99;
-    // v = new mySatur[99];
-    // if (v == 0) error("out of memory");
+    sz = 99;
+    v = new mySatur[sz];
 }
 
 vector::vector(const vector& other) {
@@ -69,13 +67,29 @@ vector vector::operator-(vector& a) {
 }
 
 
-vector vector::operator=(vector& a) {
-    int s = size();
-    if (s != a.size())
-        error("Vector size mismatch");
-    for (int i = 0; i < s; i++) {
-        elem(i) = a.elem(i);
+vector &vector::operator=(vector& a) {
+
+    if (this == &a) {
+        return *this;
     }
+
+    if (sz == a.sz) { // если размеры одинаковые
+
+        for (int i = 0; i < sz; i++) {
+            elem(i) = a.elem(i);
+        }
+        return *this;
+    } // защита от самоприсваивания
+
+    delete [] v; // уничтожим прошлый массив и сделаем из него копию другого
+    sz = a.sz;
+    v = new mySatur[sz];
+
+    if (v == 0) error("out of memory");
+    for (int i = 0; i < sz; i++) {
+        v[i] = a.v[i];
+    }
+
     return *this;
 }
 

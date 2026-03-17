@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <cmath> // мне стало лень использовать самописный абс
 #include "mySatur.h"
 
 

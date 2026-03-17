@@ -27,7 +27,7 @@ public:
 
     vector operator+(vector&a);
     vector operator-(vector&a);
-    vector operator=(vector&a);
+    vector &operator=(vector&a);
 
     void print();
 
