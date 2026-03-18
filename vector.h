@@ -7,7 +7,7 @@ class vector {
 public:
     vector(int);
     vector();
-    vector(const vector&& other);
+    vector(vector&& other);
     ~vector();
 
     inline int size() const{

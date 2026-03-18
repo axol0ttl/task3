@@ -21,13 +21,18 @@ vector::vector() {
     v = new mySatur[sz];
 }
 
-vector::vector(const vector&& other) {
+vector::vector(vector&& other) {
+    // sz = other.sz;
+    // v = new mySatur[sz];
+    // if (v == 0) error("out of memory");
+    // for (int i = 0; i < sz; i++) {
+    //     v[i] = other.v[i];
+    // }
+
     sz = other.sz;
-    v = new mySatur[sz];
-    if (v == 0) error("out of memory");
-    for (int i = 0; i < sz; i++) {
-        v[i] = other.v[i];
-    }
+    v = other.v;
+
+    other.v = nullptr;
 }
 
 
@@ -69,28 +74,38 @@ vector vector::operator-(vector& a) {
 
 vector &vector::operator=(vector&& a) {
 
-    if (this == &a) {
-        return *this;
-    }
+    // if (this == &a) {
+    //     return *this;
+    // }
+    //
+    // if (sz == a.sz) { // если размеры одинаковые
+    //
+    //     for (int i = 0; i < sz; i++) {
+    //         elem(i) = a.elem(i);
+    //     }
+    //     return *this;
+    // } // защита от самоприсваивания
+    //
+    // delete [] v; // уничтожим прошлый массив и сделаем из него копию другого
+    // sz = a.sz;
+    // v = new mySatur[sz];
+    //
+    // if (v == 0) error("out of memory");
+    // for (int i = 0; i < sz; i++) {
+    //     v[i] = a.v[i];
+    // }
+    //
+    // return *this;
 
-    if (sz == a.sz) { // если размеры одинаковые
+    if (this == &other) return *this; // да что за хуйня блять я не понимаю бля
+    delete [] v;
 
-        for (int i = 0; i < sz; i++) {
-            elem(i) = a.elem(i);
-        }
-        return *this;
-    } // защита от самоприсваивания
-
-    delete [] v; // уничтожим прошлый массив и сделаем из него копию другого
     sz = a.sz;
-    v = new mySatur[sz];
-
-    if (v == 0) error("out of memory");
-    for (int i = 0; i < sz; i++) {
-        v[i] = a.v[i];
-    }
-
+    v = a.v;
+    a.v = nullptr;
     return *this;
+
+
 }
 
 
