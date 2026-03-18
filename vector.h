@@ -7,8 +7,7 @@ class vector {
 public:
     vector(int);
     vector();
-    vector(const vector& other);
-    // vector& operator=(const vector& other);
+    vector(const vector&& other);
     ~vector();
 
     inline int size() const{
@@ -27,7 +26,7 @@ public:
 
     vector operator+(vector&a);
     vector operator-(vector&a);
-    vector &operator=(vector&a);
+    vector& operator=(vector&&a);
 
     void print();
 

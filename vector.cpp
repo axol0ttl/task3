@@ -21,7 +21,7 @@ vector::vector() {
     v = new mySatur[sz];
 }
 
-vector::vector(const vector& other) {
+vector::vector(const vector&& other) {
     sz = other.sz;
     v = new mySatur[sz];
     if (v == 0) error("out of memory");
@@ -67,7 +67,7 @@ vector vector::operator-(vector& a) {
 }
 
 
-vector &vector::operator=(vector& a) {
+vector &vector::operator=(vector&& a) {
 
     if (this == &a) {
         return *this;
