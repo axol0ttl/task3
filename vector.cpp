@@ -70,7 +70,7 @@ vector vector::operator-(vector& a) {
 vector &vector::operator=(vector&& a) {
 
     if (this == &a) {
-        return *this;
+        return *this;// защита от самоприсваивания
     }
 
     if (sz == a.sz) { // если размеры одинаковые
@@ -79,7 +79,7 @@ vector &vector::operator=(vector&& a) {
             elem(i) = a.elem(i);
         }
         return *this;
-    } // защита от самоприсваивания
+    }
 
     delete [] v; // уничтожим прошлый массив и сделаем из него копию другого
     sz = a.sz;

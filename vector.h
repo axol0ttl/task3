@@ -32,3 +32,7 @@ public:
 
 };
 void error(const char* msg);
+
+inline vector&& lvalue_to_rvalue(vector& x) {
+    return (vector&&)x;
+}
