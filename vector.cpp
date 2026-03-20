@@ -1,8 +1,8 @@
 //
 // Created by Arseny on 11/03/2026.
-//
-#include <stdio.h>
+
 #include <stdlib.h>
+#include <iostream>
 #include "vector.h"
 
 void error(const char *msg) {
@@ -21,7 +21,7 @@ vector::vector() {
     v = new mySatur[sz];
 }
 
-vector::vector(const vector& other) {
+vector::vector(vector&& other) {
     sz = other.sz;
     v = new mySatur[sz];
     if (v == 0) error("out of memory");
@@ -67,10 +67,10 @@ vector vector::operator-(vector& a) {
 }
 
 
-vector &vector::operator=(vector& a) {
+vector &vector::operator=(vector&& a) {
 
     if (this == &a) {
-        return *this;
+        return *this;// защита от самоприсваивания
     }
 
     if (sz == a.sz) { // если размеры одинаковые
@@ -79,7 +79,7 @@ vector &vector::operator=(vector& a) {
             elem(i) = a.elem(i);
         }
         return *this;
-    } // защита от самоприсваивания
+    }
 
     delete [] v; // уничтожим прошлый массив и сделаем из него копию другого
     sz = a.sz;
@@ -94,14 +94,15 @@ vector &vector::operator=(vector& a) {
 }
 
 
-
 void vector::print() {
     int s = size();
-    printf("[");
+    std::cout << "[";
+    // printf("[");
     for (int i = 0; i<s; i++) {
         elem(i).print();
-        if (i < s - 1) printf(", ");
+        if (i < s - 1) std::cout << ", ";
     }
-    printf("]\n");
+    std::cout << "]" << std::endl;
+
 }
 

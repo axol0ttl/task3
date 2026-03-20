@@ -7,8 +7,7 @@ class vector {
 public:
     vector(int);
     vector();
-    vector(const vector& other);
-    // vector& operator=(const vector& other);
+    vector(vector&& other);
     ~vector();
 
     inline int size() const{
@@ -27,9 +26,13 @@ public:
 
     vector operator+(vector&a);
     vector operator-(vector&a);
-    vector &operator=(vector&a);
+    vector& operator=(vector&&a);
 
     void print();
 
 };
 void error(const char* msg);
+
+inline vector&& lvalue_to_rvalue(vector& x) {
+    return (vector&&)x;
+}

@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "myFloat.h"
+#include <iostream>
 
 /*
 ----условия задания------
@@ -78,6 +78,7 @@ myFloat::myFloat(int a,int b){
 }
 
 void myFloat::print(){
+    // std::cout<< c << abs(d) << std::endl;
     printf("%d.%04d", c, abs(d));
     }
 
