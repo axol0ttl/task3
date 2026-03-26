@@ -8,6 +8,7 @@ public:
     vector(int);
     vector();
     vector(vector&& other);
+    vector(const vector& other);
     ~vector();
 
     inline int size() const{
@@ -27,6 +28,7 @@ public:
     vector operator+(vector&a);
     vector operator-(vector&a);
     vector& operator=(vector&&a);
+    vector& operator=(const vector& a);
 
     void print();
 

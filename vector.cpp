@@ -21,7 +21,7 @@ vector::vector() {
     v = new mySatur[sz];
 }
 
-vector::vector(vector&& other) {
+vector::vector(vector&& other) { // rvalue
     sz = other.sz;
     v = new mySatur[sz];
     if (v == 0) error("out of memory");
@@ -93,6 +93,38 @@ vector &vector::operator=(vector&& a) {
     return *this;
 }
 
+// Copy assignment
+vector& vector::operator=(const vector& a) {
+    if (this == &a) return *this;  // защита от самоприсваивания
+
+    if (size() == a.size()) { // если размеры одинаковые, просто копируем элементы
+        for (int i = 0; i < sz; i++) {
+            v[i] = a.v[i];
+        }
+        return *this;
+    }
+
+
+    delete[] v; // если ни то, ни другое, удаляем
+    sz = a.sz;
+    v = new mySatur[sz];
+    if (v == 0) error("out of memory");
+
+    for (int i = 0; i < sz; i++) {
+        v[i] = a.v[i];
+    }
+    return *this;
+}
+
+
+vector::vector(const vector& other) {
+    sz = other.sz;
+    v = new mySatur[sz];
+    if (v == 0) error("out of memory");
+    for (int i = 0; i < sz; i++) {
+        v[i] = other.v[i];
+    }
+}
 
 void vector::print() {
     int s = size();

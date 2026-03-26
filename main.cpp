@@ -2,15 +2,18 @@
 // Created by Arseny on 11/03/2026.
 //
 // #include <algorithm> // std::move
+#include <iostream>
 #include "vector.h"
 #include "mySatur.h"
 
 int main() {
 
 
-    vector x(2), y(2);
+    vector x(2), y(2), xxx(x);
     x[0] = 8255.4357; x[1] = 2.0;
     y[0] = 1642.0; y[1] = 67.0;
+
+
 
     vector res = x + y; // сложение массивов
     res.print();
@@ -25,7 +28,9 @@ int main() {
     y = lvalue_to_rvalue(x);
     y.print();
     mySatur test = res2.lm(); //возвращает ссылкой последний элемент без проверок
-    test.print();
+    //test.print();
 
+    x.print();
+    xxx.print();
     return 0;
 }
