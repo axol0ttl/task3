@@ -19,13 +19,13 @@ int main() {
     res.print();
 
     // vector res2 = std::move(res); // операция копирования
-    vector res2 = lvalue_to_rvalue(res); // 18 и 19 строка выполняют одно и то же, но в 19 самописная функция в vector.h
+    vector res2 = res; // 18 и 19 строка выполняют одно и то же, но в 19 самописная функция в vector.h
     res2.print();
     // res2[2] = 123.2351; // index out of range
-    x = lvalue_to_rvalue(y);
+    x = y;
     // x.print();
 
-    y = lvalue_to_rvalue(x);
+    y = x;
     y.print();
     mySatur test = res2.lm(); //возвращает ссылкой последний элемент без проверок
     //test.print();
