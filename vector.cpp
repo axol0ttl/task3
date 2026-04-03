@@ -2,12 +2,6 @@
 #include <stdexcept>
 #include "vector.h"
 
-// operator<< для вывода вектора через cout<<
-
-std::ostream& operator<<(std::ostream& os, mySatur& x) {
-x.print();
-return os;
-}
 
 // конструкторы
 
@@ -45,8 +39,7 @@ vector::~vector() {
 delete[] v;
 }
 
-// ── Доступ к элементам ───────────────────────────────────────────────────────
-
+// Доступ к элементам
 mySatur& vector::operator[](int i) {
 try {
 if (i < 0 || i >= sz) throw std::runtime_error("index out of range");
@@ -65,7 +58,7 @@ std::cerr << e.what() << std::endl;
 return v[i];
 }
 
-// ── Арифметика ───────────────────────────────────────────────────────────────
+
 
 vector vector::operator+(vector& a) {
 int s = size();
@@ -93,7 +86,7 @@ sum.elem(i) = elem(i) - a.elem(i);
 return sum;
 }
 
-// ── Присваивание ─────────────────────────────────────────────────────────────
+
 
 vector& vector::operator=(const vector& a) {
 if (this == &a) return *this;
@@ -130,7 +123,7 @@ a.sz = 0;
 return *this;
 }
 
-// ── Вывод ────────────────────────────────────────────────────────────────────
+
 
 void vector::print() {
 std::cout << "[";
