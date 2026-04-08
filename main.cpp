@@ -9,7 +9,8 @@
 int main() {
 
 
-    vector x(2), y(2), xxx(x);
+    vector x(2), y(2);
+    vector xxx(x);
     x[0] = 8255.4357; x[1] = 2.0;
     y[0] = 1642.0; y[1] = 67.0;
 

@@ -2,8 +2,6 @@
 #include "vector.h"
 
 
-// конструкторы
-
 vector::vector(int s) {
     try {
         if (s < 1) throw std::runtime_error("wrong size");
